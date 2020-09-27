@@ -19,6 +19,7 @@ airflow initdb
 
 1. `airflow webserver -p 8080 -D `
 2. `airflow scheduler -D`
+(in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
 3. Check: go to url <ip>:8080
 
 ## Stop Airflow:
