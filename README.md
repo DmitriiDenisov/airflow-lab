@@ -30,3 +30,8 @@ airflow initdb
 
 
 Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
+
+## Tutorials
+
+1. 
+2. BranchPythonOperator, source:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
