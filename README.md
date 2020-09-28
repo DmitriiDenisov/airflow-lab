@@ -34,4 +34,21 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 ## Tutorials
 
 1. 
-2. BranchPythonOperator, source:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
+2. BranchPythonOperator 
+Source1:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
+Source2: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
+
+3. BranchPythonOperator - return list of tasks 
+
+4. LatestOnlyOperator 1 - вкратце, предположим есть таска t=LatestOnlyOperator(). Если DAG стартует перед текущей датой, то вместо того, чтобы все раны пропустить (catchup=False), этот оператор пропускает все разы только тех тасков, которые зависят от таски t.
+Allows a workflow to skip tasks that are not running during the most
+recent schedule interval.
+
+If the task is run outside of the latest schedule interval, all
+directly downstream tasks will be skipped.
+
+Note that downstream tasks are never skipped if the given DAG_Run is
+marked as externally triggered.
+Source: https://stackoverflow.com/questions/61252482/difference-between-latest-only-operator-and-catchup-in-airflow
+
+5. LatestOnlyOperator 2
