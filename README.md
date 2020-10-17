@@ -37,7 +37,7 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 2. PythonOperator and multiple tasks in DAG (try_utc / dag_2.py)
 3. Show parameters of default_args in DAG (tutorial_3 / dag_3.py)
 4. Еще пример разных конструкций и немного рассказать про dagrun_timeout=timedelta(minutes=5) (test_5 / dag_4.py)
-5. Skip operator + how to do multiple parallel graphs (example_skip_dagschedule)
+5. Skip operator + how to do multiple parallel graphs (example_skip_dag)
 5. BranchPythonOperator (3 examples) (example_branch_operator, example_nested_branch_dag, example_branch_dop_operator_v3_my)
 Source1:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
 Source2: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
