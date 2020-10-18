@@ -33,7 +33,20 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 ## Tutorials
 
-1. BashOperator (test_1_new / dag_1.py)
+1. BashOperator (dag_bash_operator.py / dag_bash_operator_long.py)
+
+`dag_bash_operator` - example of simple bash operator
+
+`dag_bash_operator_long` - extended previous example where there are multiple rows for Bash Command
+
+*catchup parameter* 
+
+An Airflow DAG with a start_date, possibly an end_date, and a schedule_interval defines a series of intervals which the scheduler turns into individual DAG Runs and executes. The scheduler, by default, will kick off a DAG Run for any interval that has not been run since the last execution date (or has been cleared). This concept is called Catchup.
+
+`catchup=False` means that all previous skipped runs won't run. For example, if you set 'start_date': datetime(2020, 10, 30, 0, 0) and schedule_interval=timedelta(hours=1) and you uploaded your dag at datetime(2020, 10, 30, 3, 30) then it means that 3 runs were skipped and once you uploaded your new DAG it will run initially 3 times, in order to skip it use `catchup=False` parameter
+
+Source: https://airflow.apache.org/docs/stable/dag-run.html#:~:text=DAG%20run%20fails.-,Catchup,individual%20DAG%20Runs%20and%20executes.
+
 2. PythonOperator and multiple tasks in DAG (try_utc / dag_2.py)
 3. Show parameters of default_args in DAG (tutorial_3 / dag_3.py)
 4. Еще пример разных конструкций и немного рассказать про dagrun_timeout=timedelta(minutes=5) (test_5 / dag_4.py)
