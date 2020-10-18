@@ -68,15 +68,18 @@ Example of how to use ShortCircuitOperator + example of how to use `airflow.util
 Sometimes you need a workflow to branch, or only go down a certain path based on an arbitrary condition which is typically related to something that happened in an upstream task. One way to do this is by using the BranchPythonOperator. The BranchPythonOperator is much like the PythonOperator except that it expects a python_callable that returns a task_id (or list of task_ids). The task_id returned is followed, and all of the other paths are skipped. The task_id returned by the Python function has to reference a task directly downstream from the BranchPythonOperator task.
 
 branch_operator_ex_1.py - randomly chooses one of 4
+
 branch_operator_ex_2.py - more complex structure, but alwasy chooses same path 
+
 branch_operator_ex_3.py - depending on some condition it chooses path 
 
+Source1: https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
 
-
-Source1:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
 Source2: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
 
-8. **BranchPythonOperator - return list of tasks (branch_list_ex)**
+8. **BranchPythonOperator - return list of tasks (branch_list_ex.py)**
+
+Same as previous but this time we will return list of task_ids and instead of one path we choose multiple paths 
 
 9. **LatestOnlyOperator (2 examples) (latest_only_with_trigger and latest_only_ex)**
 - вкратце, предположим есть таска t=LatestOnlyOperator(). Если DAG стартует перед текущей датой, то вместо того, чтобы все раны пропустить (catchup=False), этот оператор пропускает все разы только тех тасков, которые зависят от таски t.
