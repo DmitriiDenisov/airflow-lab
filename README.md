@@ -100,7 +100,14 @@ In **latest_only_with_trigger_more_complex.py** tasks won't be run 1, 3, 4 meanw
 
 Source: https://stackoverflow.com/questions/61252482/difference-between-latest-only-operator-and-catchup-in-airflow
 
-10. **Show kwargs and what is there inside (example_python_operator)**
+10. **How to pass inside argument + kwards (example_pass_args.py)**
+
+`op_kwargs` shows how to pass inside PythonOperator arguments
+
+Parameter `provide_context=True` allows to pass inside python operator two features: ds and kwargs, in this example they are printed out so you will see them in logs in Airflow. Inside there is only metadata
+
+Explanation for `ds` feature in python function: https://stackoverflow.com/questions/40531952/airflow-pythonoperator-why-to-include-ds-arg 
+
 11. **Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag triggers example_trigger_target_dag)**
 12. **Xcoms (cross communication) (example_xcom)**
 
