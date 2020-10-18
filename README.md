@@ -81,8 +81,10 @@ Source2: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#bra
 
 Same as previous but this time we will return list of task_ids and instead of one path we choose multiple paths 
 
-9. **LatestOnlyOperator (2 examples) (latest_only_with_trigger and latest_only_ex)**
-- вкратце, предположим есть таска t=LatestOnlyOperator(). Если DAG стартует перед текущей датой, то вместо того, чтобы все раны пропустить (catchup=False), этот оператор пропускает все разы только тех тасков, которые зависят от таски t.
+9. **LatestOnlyOperator (2 examples) (latest_only_with_trigger.py and latest_only_with_trigger_more_complex.py)**
+
+Suppose there is a task t = LatestOnlyOperator (). If the DAG starts before the current date, then instead of skipping all tasks (catchup = False), this operator skips all tasks that depends on the task t, meanwhile all the rest will be run. 
+
 Allows a workflow to skip tasks that are not running during the most
 recent schedule interval.
 
@@ -91,6 +93,11 @@ directly downstream tasks will be skipped.
 
 Note that downstream tasks are never skipped if the given DAG_Run is
 marked as externally triggered.
+
+In **latest_only_with_trigger.py** tasks 1, 3, 4 won't be run meanwhile tasks 2 and latest_only will be run
+
+In **latest_only_with_trigger_more_complex.py** tasks won't be run 1, 3, 4 meanwhile tasks 2, 5, 6, 7 and latest_only will be run
+
 Source: https://stackoverflow.com/questions/61252482/difference-between-latest-only-operator-and-catchup-in-airflow
 
 10. **Show kwargs and what is there inside (example_python_operator)**
