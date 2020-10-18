@@ -33,7 +33,7 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 ## Tutorials
 
-1. BashOperator (dag_bash_operator.py / dag_bash_operator_long.py)
+1. **BashOperator (dag_bash_operator.py / dag_bash_operator_long.py)**
 
 `dag_bash_operator` - example of simple bash operator
 
@@ -47,17 +47,39 @@ An Airflow DAG with a start_date, possibly an end_date, and a schedule_interval 
 
 Source: https://airflow.apache.org/docs/stable/dag-run.html#:~:text=DAG%20run%20fails.-,Catchup,individual%20DAG%20Runs%20and%20executes.
 
-2. PythonOperator and multiple tasks in DAG (try_utc / dag_2.py)
-3. Show parameters of default_args in DAG (tutorial_3 / dag_3.py)
-4. Еще пример разных конструкций и немного рассказать про dagrun_timeout=timedelta(minutes=5) (test_5 / dag_4.py)
-5. ShortCircuitOperator - skip downstream tasks based on evaluation of some condition (example_short_circuit_operator)
-7. BranchPythonOperator (3 examples) (example_branch_operator, example_nested_branch_dag, example_branch_dop_operator_v3_my)
+2. **PythonOperator and multiple tasks in DAG (python_operator_ex.py)**
+
+This is an example of Python Operator + two connected tasks 
+
+3. **Show parameters of default_args in DAG (default_args_ex.py)**
+
+Possible parameters for default_args for DAG and how to pass params to BashOperator
+
+4. **More complicated structure of DAG: (dag_more_complex.py)**
+
+dagrun_timeout - default value is None. If you set it to some value (for example timedelta(minutes=5)) be aware that if DAG won't finish within 5 minutes then it will be marked as unsuccessful (low perfomance computers/servers might affect)
+
+5. **ShortCircuitOperator - skip downstream tasks based on evaluation of some condition (short_circuit_ex.py)**
+
+Example of how to use ShortCircuitOperator + example of how to use `airflow.utils.helpers.chain` which is alternative way of using `<<`
+
+7. **BranchPythonOperator (3 examples) (branch_operator_ex_1.py, branch_operator_ex_2.py, branch_operator_ex_3.py)**
+
+Sometimes you need a workflow to branch, or only go down a certain path based on an arbitrary condition which is typically related to something that happened in an upstream task. One way to do this is by using the BranchPythonOperator. The BranchPythonOperator is much like the PythonOperator except that it expects a python_callable that returns a task_id (or list of task_ids). The task_id returned is followed, and all of the other paths are skipped. The task_id returned by the Python function has to reference a task directly downstream from the BranchPythonOperator task.
+
+branch_operator_ex_1.py - randomly chooses one of 4
+branch_operator_ex_2.py - more complex structure, but alwasy chooses same path 
+branch_operator_ex_3.py - depending on some condition it chooses path 
+
+
+
 Source1:https://stackoverflow.com/questions/43678408/how-to-create-a-conditional-task-in-airflow
 Source2: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
 
-8. BranchPythonOperator - return list of tasks (branch_list_ex)
+8. **BranchPythonOperator - return list of tasks (branch_list_ex)**
 
-9. LatestOnlyOperator (2 examples) (latest_only_with_trigger and latest_only_ex) - вкратце, предположим есть таска t=LatestOnlyOperator(). Если DAG стартует перед текущей датой, то вместо того, чтобы все раны пропустить (catchup=False), этот оператор пропускает все разы только тех тасков, которые зависят от таски t.
+9. **LatestOnlyOperator (2 examples) (latest_only_with_trigger and latest_only_ex)**
+- вкратце, предположим есть таска t=LatestOnlyOperator(). Если DAG стартует перед текущей датой, то вместо того, чтобы все раны пропустить (catchup=False), этот оператор пропускает все разы только тех тасков, которые зависят от таски t.
 Allows a workflow to skip tasks that are not running during the most
 recent schedule interval.
 
@@ -68,9 +90,9 @@ Note that downstream tasks are never skipped if the given DAG_Run is
 marked as externally triggered.
 Source: https://stackoverflow.com/questions/61252482/difference-between-latest-only-operator-and-catchup-in-airflow
 
-10. Show kwargs and what is there inside (example_python_operator)
-11. Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag triggers example_trigger_target_dag)
-12. Xcoms (cross communication) (example_xcom)
+10. **Show kwargs and what is there inside (example_python_operator)**
+11. **Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag triggers example_trigger_target_dag)**
+12. **Xcoms (cross communication) (example_xcom)**
 
 XComs let tasks exchange messages, allowing more nuanced forms of control and shared state. The name is an abbreviation of “cross-communication”. XComs are principally defined by a key, value, and timestamp, but also track attributes like the task/DAG that created the XCom and when it should become visible. Any object that can be pickled can be used as an XCom value, so users should make sure to use objects of appropriate size.
 
@@ -80,7 +102,7 @@ Tasks call xcom_pull() to retrieve XComs, optionally applying filters based on c
 
 If xcom_pull is passed a single string for task_ids, then the most recent XCom value from that task is returned; if a list of task_ids is passed, then a corresponding list of XCom values is returned.
 
-13. Airflow variables + json config: 
+13. **Airflow variables + json config: **
 
 https://www.youtube.com/watch?v=bHQ7nzn0j6k&list=PLYizQ5FvN6pvIOcOd6dFZu3lQqc6zBGp2&index=7&ab_channel=ApplyDataScience
 
