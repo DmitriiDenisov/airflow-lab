@@ -108,7 +108,10 @@ Parameter `provide_context=True` allows to pass inside python operator two featu
 
 Explanation for `ds` feature in python function: https://stackoverflow.com/questions/40531952/airflow-pythonoperator-why-to-include-ds-arg 
 
-11. **Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag triggers example_trigger_target_dag)**
+11. **Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag** triggers **example_trigger_target_dag)**
+
+`Example_trigger_target_dag` is ordinary dag. `Example_trigger_controller_dag` uses `TriggerDagRunOperator` which calls inside python-callable function which decides whether to trigger target dag or not + it passes params inside this python-callable function
+
 12. **Xcoms (cross communication) (example_xcom)**
 
 XComs let tasks exchange messages, allowing more nuanced forms of control and shared state. The name is an abbreviation of “cross-communication”. XComs are principally defined by a key, value, and timestamp, but also track attributes like the task/DAG that created the XCom and when it should become visible. Any object that can be pickled can be used as an XCom value, so users should make sure to use objects of appropriate size.
