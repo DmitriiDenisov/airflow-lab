@@ -122,8 +122,10 @@ Tasks call xcom_pull() to retrieve XComs, optionally applying filters based on c
 
 If xcom_pull is passed a single string for task_ids, then the most recent XCom value from that task is returned; if a list of task_ids is passed, then a corresponding list of XCom values is returned.
 
-13. **Airflow variables + json config:**
+13. **Airflow variables + json config (variable_ex.py)**
 
-https://www.youtube.com/watch?v=bHQ7nzn0j6k&list=PLYizQ5FvN6pvIOcOd6dFZu3lQqc6zBGp2&index=7&ab_channel=ApplyDataScience
+It shows both: parse of json config and separate variables
+
+Source: 
 
 https://www.applydatascience.com/airflow/airflow-variables/
