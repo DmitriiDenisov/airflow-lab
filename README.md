@@ -129,3 +129,6 @@ It shows both: parse of json config and separate variables
 Source: 
 
 https://www.applydatascience.com/airflow/airflow-variables/
+
+
+Source for all: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
