@@ -17,15 +17,15 @@ airflow initdb
 
 ## Start webserver and scheduler:
 
-1. `airflow webserver -p 8080 -D `
+1. `airflow webserver -p 9090 -D `
 2. `airflow scheduler -D`
 (in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
-3. Check: go to url <ip>:8080
+3. Check: go to url <ip>:9090
 
 ## Stop Airflow:
 
 1. `cat ~/airflow/airflow-webserver.pid | xargs kill -9` (will take around 30 secs to stop it)
-2. (optional) To check that all stopped: `lsof -i tcp:8080`
+2. (optional) To check that all stopped: `lsof -i tcp:9090`
 
 
 
