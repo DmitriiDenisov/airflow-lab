@@ -17,19 +17,22 @@ airflow initdb
 
 ## Start webserver and scheduler:
 
-1. `airflow webserver -p 9090 -D `
+1. `airflow webserver -p 9091 -D `
 2. `airflow scheduler -D`
 (in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
-3. Check: go to url <ip>:9090
+3. Check: go to url <ip>:9091
 
 ## Stop Airflow:
 
 1. `cat ~/airflow/airflow-webserver.pid | xargs kill -9` (will take around 30 secs to stop it)
-2. (optional) To check that all stopped: `lsof -i tcp:9090`
-
+2. (optional) To check that all stopped: `lsof -i tcp:9091`
 
 
 Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
+
+## Path to config file:
+
+`~/airflow/airflow.cfg`
 
 ## Tutorials
 
