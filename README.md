@@ -24,6 +24,8 @@ airflow users create -e dmitry@gmail.com -f Dmitry -l Denisov -r Admin -u dmitry
 
 ## Start webserver and scheduler:
 
+On my server (bank-bot) two AIrflows are installed, in order to use the correct one use `sudo su` and after it put commands below:
+
 1. `airflow webserver -p 9091 -D `
 2. `airflow scheduler -D`
 (in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
