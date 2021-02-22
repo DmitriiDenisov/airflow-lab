@@ -131,6 +131,7 @@ Explanation for `ds` feature in python function: https://stackoverflow.com/quest
 11. **Trigger another DAG using TriggerDagRunOperator (example_trigger_controller_dag.py** triggers **example_trigger_target_dag.py)**
 
 `Example_trigger_target_dag` is ordinary dag. `Example_trigger_controller_dag` uses `TriggerDagRunOperator` which calls inside python-callable function which decides whether to trigger target dag or not + it passes params inside this python-callable function
+**Important: when you trigger controller dag pass inside config dag_run.conf: {"should_trigger": true}. This will be asked once you trigger DAG from UI**
 
 12. **Xcoms (cross communication) (xcom_ex.py)**
 
