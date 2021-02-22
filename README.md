@@ -39,8 +39,11 @@ On my server (bank-bot) two AIrflows are installed, in order to use the correct 
 1. `cat ~/airflow/airflow-webserver.pid | xargs kill -9` (will take around 30 secs to stop it)
 2. (optional) To check that all stopped: `lsof -i tcp:9091`
 
-
 Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
+
+## Uninstall Airflow:
+
+`pip3 uninstall apache-airflow `
 
 ## Path to config file:
 
