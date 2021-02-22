@@ -45,9 +45,17 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 `pip3 uninstall apache-airflow `
 
-## Path to config file:
+## TroubleShooting:
 
-`~/airflow/airflow.cfg`
+Config path: `~/airflow/airflow.cfg`
+
+If `The `secret_key` setting under the webserver config has...` then:
+
+1. Generate string `openssl rand -hex 30`
+
+2. Copy generated string into config file for secret_key = generated_string (under flask)
+
+
 
 ## Remove Example Dags from UI:
 
