@@ -49,6 +49,8 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 2. `airflow db reset`
 
+3. Delete manually DAGs from Web UI
+
 [Source](https://stackoverflow.com/questions/43410836/how-to-remove-default-example-dags-in-airflow)
 
 ## Tutorials
