@@ -33,26 +33,37 @@ This example illustrates the following features :
 2. A Target DAG : c.f. example_trigger_target_dag.py
 """
 
-
 import pprint
 
-from airflow import DAG
+from airflow.models import DAG, Variable
 from airflow.operators.dagrun_operator import TriggerDagRunOperator
 from airflow.utils.dates import days_ago
 from airflow.exceptions import AirflowSkipException
 from airflow.operators.python_operator import PythonOperator
+from distutils.util import strtobool
 
 pp = pprint.PrettyPrinter(indent=4)
 
 
+trigger_var = strtobool(Variable.get("should_trigger")) # strtobool function converts string to int
+
 def _should_trigger(dag_run, **_):
-    # dag_run.conf - it is json which you pass once you trigger DAG
-    # This function decides whether to trigger next DAG or not. If parameter should_trigger=true then DAG will be triggered
-    print('Received parameter:', dag_run.conf.get("should_trigger"))
-    print('Type of it:', type(dag_run.conf.get("should_trigger")))
-    if not dag_run.conf.get("should_trigger"):
+    print('Received parameter:', trigger_var)
+    print('Type of it:', type(trigger_var))
+    if not trigger_var:
         raise AirflowSkipException("should_trigger set to False")
 
+
+"""
+def conditionally_trigger(context, dag_run_obj):
+    #This function decides whether or not to Trigger the remote DAG
+    c_p = context['params']['condition_param']
+    print("Controller DAG : conditionally_trigger = {}".format(c_p))
+    if context['params']['condition_param']:
+        dag_run_obj.payload = {'message': context['params']['message']}
+        pp.pprint(dag_run_obj.payload)
+        return dag_run_obj
+"""
 
 # Define the DAG
 dag = DAG(
@@ -74,7 +85,7 @@ should_trigger = PythonOperator(
 trigger = TriggerDagRunOperator(
     task_id="test_trigger_dagrun",
     trigger_dag_id="example_trigger_target_dag",
-    #python_callable=conditionally_trigger, # deprecated 
+    #python_callable=conditionally_trigger,
     conf={'condition_param': True, 'message': 'Hello World'},
     dag=dag,
 )
