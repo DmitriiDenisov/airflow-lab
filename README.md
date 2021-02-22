@@ -147,9 +147,7 @@ If xcom_pull is passed a single string for task_ids, then the most recent XCom v
 
 It shows both: parse of json config and separate variables
 
-Source: 
-
-https://www.applydatascience.com/airflow/airflow-variables/
+[Source](https://www.applydatascience.com/airflow/airflow-variables/)
 
 
-Source for all: https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching
+[Source for all](https://airflow.apache.org/docs/stable/concepts.html?highlight=xcom#branching)
