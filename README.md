@@ -16,7 +16,7 @@ export AIRFLOW_HOME=~/airflow
 pip install apache-airflow
 
 # initialize the database
-airflow initdb
+airflow db init
 
 # Create user (just example)
 airflow users create -e dmitry@gmail.com -f Dmitry -l Denisov -r Admin -u dmitry -p 123
