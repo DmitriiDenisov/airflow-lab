@@ -116,7 +116,7 @@ marked as externally triggered.
 
 In **latest_only_with_trigger.py** tasks 1, 3 won't be run (as they are downsteams of LatestOnlyOperator) meanwhile tasks 2 and latest_only will be run. Task 4 will aslo run as it has `trigger_rule=TriggerRule.ALL_DONE` [Source](https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#latest-run-only)
 
-In **latest_only_with_trigger_more_complex.py** tasks won't be run 1, 3, 4 meanwhile tasks 2, 5, 6, 7 and latest_only will be run
+In **latest_only_with_trigger_more_complex.py** tasks won't be run 1, 3 meanwhile tasks 2, 5, 6, 7 and latest_only will be run. Task 4 will aslo run as it has `trigger_rule=TriggerRule.ALL_DONE`
 
 Source: https://stackoverflow.com/questions/61252482/difference-between-latest-only-operator-and-catchup-in-airflow
 
