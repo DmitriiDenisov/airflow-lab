@@ -2,7 +2,11 @@
 
 
 ## Install 
+
+**Important: use sudo! So better to do everything after sudo su**
 ```
+sudo su
+
 # airflow needs a home, ~/airflow is the default,
 # but you can lay foundation somewhere else if you prefer
 # (optional)
@@ -13,6 +17,9 @@ pip install apache-airflow
 
 # initialize the database
 airflow initdb
+
+# Create user (just example)
+airflow users create -e dmitry@gmail.com -f Dmitry -l Denisov -r Admin -u dmitry -p 123
 ```
 
 ## Start webserver and scheduler:
