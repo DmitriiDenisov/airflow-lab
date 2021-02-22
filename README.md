@@ -43,6 +43,14 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 `~/airflow/airflow.cfg`
 
+## Remove Example Dags from UI:
+
+1. Set `load_examples = False` in `airflow.cfg`
+
+2. `airflow db reset`
+
+[Source](https://stackoverflow.com/questions/43410836/how-to-remove-default-example-dags-in-airflow)
+
 ## Tutorials
 
 1. **BashOperator (dag_bash_operator.py / dag_bash_operator_long.py)**
