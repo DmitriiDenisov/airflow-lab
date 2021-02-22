@@ -55,7 +55,9 @@ If `The secret_key setting under the webserver config has...` then:
 
 2. Copy generated string into config file for secret_key = generated_string (under flask)
 
+If `ValueError: invalid SameSite value; must be 'Strict', 'Lax' or None` then:
 
+`pip install 'werkzeug<1.0.0'`
 
 ## Remove Example Dags from UI:
 
