@@ -45,11 +45,9 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 ## Remove Example Dags from UI:
 
-1. Set `load_examples = False` in `airflow.cfg`
+1. While Airflow is running set `load_examples = False` in `airflow.cfg`
 
 2. `airflow db reset`
-
-3. Delete manually DAGs from Web UI
 
 [Source](https://stackoverflow.com/questions/43410836/how-to-remove-default-example-dags-in-airflow)
 
