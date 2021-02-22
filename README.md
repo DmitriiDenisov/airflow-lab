@@ -31,6 +31,9 @@ On my server (bank-bot) two AIrflows are installed, in order to use the correct 
 (in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
 3. Check: go to url <ip>:9091
 
+**Important: if Airflow does not start in daemon (-D) mode then rm ~/airflow/airflow-webserver-monitor.pid and rm ~/airflow/airflow-webserver.err**
+[Source](https://stackoverflow.com/questions/54737229/airflow-server-is-not-running-in-daemon-mode)
+
 ## Stop Airflow:
 
 1. `cat ~/airflow/airflow-webserver.pid | xargs kill -9` (will take around 30 secs to stop it)
