@@ -49,6 +49,8 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 Config path: `~/airflow/airflow.cfg`
 
+Path to DAGs: `~/airflow/dags$`
+
 If `The secret_key setting under the webserver config has...` then:
 
 1. Generate string `openssl rand -hex 30`
