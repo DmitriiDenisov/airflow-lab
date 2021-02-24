@@ -58,6 +58,10 @@ If `ValueError: invalid SameSite value; must be 'Strict', 'Lax' or None` then:
 
 `pip install 'werkzeug<1.0.0'`
 
+if `DataBase is locker`:
+
+Try to run `airflow db init`
+
 ## Remove Example Dags from UI:
 
 1. While Airflow is running set `load_examples = False` in `airflow.cfg`
