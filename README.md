@@ -23,10 +23,10 @@ airflow users create -e dmitry@gmail.com -f Dmitry -l Denisov -r Admin -u dmitry
 
 On my server (bank-bot) two AIrflows are installed, in order to use the correct one use `sudo su` and after it put commands below:
 
-1. `airflow webserver -p 9091 -D` (**Important: if Airflow webserver does not start in daemon (-D) mode then `rm ~/airflow/airflow-webserver-monitor.pid` and `rm ~/airflow/airflow-webserver.err`**
+1. `airflow webserver -p 9091 -D` (**Important: if Airflow webserver does not start in daemon (-D) mode then `sudo rm ~/airflow/airflow-webserver-monitor.pid && sudo rm ~/airflow/airflow-webserver.err`**
 [Source](https://stackoverflow.com/questions/54737229/airflow-server-is-not-running-in-daemon-mode))
 2. `airflow scheduler -D`
-(in case if scheduler does not run in Daemon mode try to run `sudo rm $AIRFLOW_HOME airflow-scheduler.err  airflow-scheduler.pid`)
+(in case if scheduler does not run in Daemon mode try to run `sudo rm  ~/airflow/airflow-scheduler.err  && sudo rm ~/airflow/airflow-scheduler.pid`)
 3. Check: go to url <ip>:9091
 
 
