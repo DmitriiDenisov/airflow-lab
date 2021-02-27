@@ -70,6 +70,10 @@ Try to run `airflow db init`
 
 [Source](https://stackoverflow.com/questions/43410836/how-to-remove-default-example-dags-in-airflow)
 
+## Hide sensitive variables in UI:
+
+Airflow Variables: Value of a variable will be hidden if the key contains any words in (‘password’, ‘secret’, ‘passwd’, ‘authorization’, ‘api_key’, ‘apikey’, ‘access_token’)
+
 ## Tutorials
 
 1. **BashOperator (dag_bash_operator.py / dag_bash_operator_long.py)**
