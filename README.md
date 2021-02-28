@@ -42,6 +42,11 @@ Source: https://vujade.co/install-apache-airflow-ubuntu-18-04/
 
 `pip3 uninstall apache-airflow `
 
+## Bank-bot part:
+
+Folder `models` and file `my_new_dag.py` are parts of [bank-bot](https://github.com/DmitriiDenisov/bank-bot) project. In order to check it put both of them into `~/airflow/dags` folder
+
+
 ## TroubleShooting:
 
 Config path: `~/airflow/airflow.cfg`
